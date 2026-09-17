@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    container_name: flask-backend
+    ports:
+      - "9000:9000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - PORT=9000
+
+  frontend:
+    build: ./frontend
+    container_name: express-frontend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - backend
+    environment:
+      - PORT=8000
+      - BACKEND_URL=http://backend:9000
