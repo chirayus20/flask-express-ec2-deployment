@@ -6,4 +6,6 @@ __pycache__/
 myenv/
 
 .env
-backend/.env
+backend/.envec2-fullstack-key.pem
+*:Zone.Identifier
+*.pem
